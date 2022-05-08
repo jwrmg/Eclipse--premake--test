@@ -12,3 +12,4 @@ IncludeDir["GLAD"] = "%{VendorDir}Glad/include"
 IncludeDir["GLFW"] = "%{VendorDir}GLFW/include"
 IncludeDir["Assimp"] = "%{VendorDir}assimp/include"
 IncludeDir["termcolor"] = "%{VendorDir}termcolor/include"
+IncludeDir["RakNet"] = "${VendorDir}RakNet" -- figure this out
