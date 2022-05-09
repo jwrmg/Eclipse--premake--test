@@ -1,19 +1,21 @@
-project "ImGui"
-	kind "StaticLib"
-	language "C"
-	architecture "x86_64"
+project ("imgui")
+	kind ("StaticLib")
+	language ("C")
+	architecture ("x86_64")
+
+    location(OutDir .. "Vendors/imgui")
 
     -- replace these
-	targetdir "../bin/%{cfg.buildcfg}"
-	objdir "../obj/%{cfg.buildcfg}"
+	targetdir("%{BuildLocation}%{prj.name}")
+	objdir("%{BuildLocation}Imde/%{prj.name}")
 	
-	includedirs { "imgui/", "imgui/examples/", "glad/include", "glfw/include/" }
+	includedirs { "%{DependencyDir}imgui/", "%{DependencyDir}imgui/examples/", "%{DependencyDir}glad/include/", "%{DependencyDir}glfw/include/" }
 
 	files
 	{
-		"imgui/*.cpp",
-		"imgui/examples/imgui_impl_glfw.cpp",
-		"imgui/examples/imgui_impl_opengl3.cpp"
+		"%{DependencyDir}imgui/*.cpp",
+		"%{DependencyDir}imgui/backends/imgui_impl_glfw.cpp",
+		"%{DependencyDir}imgui/backends/imgui_impl_opengl3.cpp"
 	}
 
 	defines 

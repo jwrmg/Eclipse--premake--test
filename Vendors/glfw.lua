@@ -1,25 +1,26 @@
-project "GLFW"
-	kind "StaticLib"
-	language "C"
+project ("glfw")
+	kind ("StaticLib")
+	language ("C")
 	architecture "x86_64"
 
-    -- replace these
-	targetdir "../bin/%{cfg.buildcfg}"
-	objdir "../obj/%{cfg.buildcfg}"
+	location(OutDir .. "Vendors/glfw")
+
+	targetdir("%{BuildLocation}%{prj.name}")
+	objdir("%{BuildLocation}Imde/%{prj.name}")
 	
-	includedirs { "glfw/include/" }
+	includedirs { "%{DependencyDir}glfw/include/" }
 
 	files
 	{
---		"glfw/include/GLFW/glfw3.h",
---		"glfw/include/GLFW/glfw3native.h",
-		"glfw/src/glfw_config.h",
-		"glfw/src/context.c",
-		"glfw/src/init.c",
-		"glfw/src/input.c",
-		"glfw/src/monitor.c",
-		"glfw/src/vulkan.c",
-		"glfw/src/window.c"
+--		"%{DependencyDir}glfw/include/GLFW/glfw3.h",
+--		"%{DependencyDir}glfw/include/GLFW/glfw3native.h",
+		"%{DependencyDir}glfw/src/glfw_config.h",
+		"%{DependencyDir}glfw/src/context.c",
+		"%{DependencyDir}glfw/src/init.c",
+		"%{DependencyDir}glfw/src/input.c",
+		"%{DependencyDir}glfw/src/monitor.c",
+		"%{DependencyDir}glfw/src/vulkan.c",
+		"%{DependencyDir}glfw/src/window.c"
 	}
     
 	filter "system:linux"
@@ -30,16 +31,16 @@ project "GLFW"
 
 		files
 		{
-			"glfw/src/x11_init.c",
-			"glfw/src/x11_monitor.c",
-			"glfw/src/x11_window.c",
-			"glfw/src/xkb_unicode.c",
-			"glfw/src/posix_time.c",
-			"glfw/src/posix_thread.c",
-			"glfw/src/glx_context.c",
-			"glfw/src/egl_context.c",
-			"glfw/src/osmesa_context.c",
-			"glfw/src/linux_joystick.c"
+			"%{DependencyDir}glfw/src/x11_init.c",
+			"%{DependencyDir}glfw/src/x11_monitor.c",
+			"%{DependencyDir}glfw/src/x11_window.c",
+			"%{DependencyDir}glfw/src/xkb_unicode.c",
+			"%{DependencyDir}glfw/src/posix_time.c",
+			"%{DependencyDir}glfw/src/posix_thread.c",
+			"%{DependencyDir}glfw/src/glx_context.c",
+			"%{DependencyDir}glfw/src/egl_context.c",
+			"%{DependencyDir}glfw/src/osmesa_context.c",
+			"%{DependencyDir}glfw/src/linux_joystick.c"
 		}
 
 		defines
@@ -53,15 +54,15 @@ project "GLFW"
 
 		files
 		{
-			"glfw/src/win32_init.c",
-			"glfw/src/win32_joystick.c",
-			"glfw/src/win32_monitor.c",
-			"glfw/src/win32_time.c",
-			"glfw/src/win32_thread.c",
-			"glfw/src/win32_window.c",
-			"glfw/src/wgl_context.c",
-			"glfw/src/egl_context.c",
-			"glfw/src/osmesa_context.c"
+			"%{DependencyDir}glfw/src/win32_init.c",
+			"%{DependencyDir}glfw/src/win32_joystick.c",
+			"%{DependencyDir}glfw/src/win32_monitor.c",
+			"%{DependencyDir}glfw/src/win32_time.c",
+			"%{DependencyDir}glfw/src/win32_thread.c",
+			"%{DependencyDir}glfw/src/win32_window.c",
+			"%{DependencyDir}glfw/src/wgl_context.c",
+			"%{DependencyDir}glfw/src/egl_context.c",
+			"%{DependencyDir}glfw/src/osmesa_context.c"
 		}
 
 		defines 

@@ -1,17 +1,21 @@
-project "GLM"
-	kind "StaticLib"
-	language "C"
-	architecture "x86_64"
+project ("glm")
+	kind ("StaticLib")
+	language ("C")
+	architecture ("x86_64")
+
+	location(OutDir .. "Vendors/glm")
+
 
     -- replace these.
-	targetdir "../bin/%{cfg.buildcfg}"
-	objdir "../obj/%{cfg.buildcfg}"
+	targetdir("%{BuildLocation}%{prj.name}")
+	objdir("%{BuildLocation}Imde/%{prj.name}")
 	
-	includedirs { "glm/" }
+	includedirs { "%{DependencyDir}glm/" }
 
 	files
 	{
-		"glm/glm/**"
+		"%{DependencyDir}glm/glm/**"
+		--"glm/glm/**"
 	}
     
 	filter "system:linux"

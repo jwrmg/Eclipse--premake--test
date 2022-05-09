@@ -35,7 +35,14 @@
     -- .premake
 
 -- premake5.lua
+
+
+-- global variables
+DependencyType = "StaticLib"
+OutDir = "../Build/"
+
 include "./Modules/Eclipse/EclipseProject.lua"
+include "./Modules/Eclipse/EclipseModule.lua"
     
 workspace "Eclipse"
     location("../Build")
@@ -50,9 +57,12 @@ workspace "Eclipse"
         defines {"NDEBUG"}
     filter {}
     
+    include "vendors.lua"
+
     group "Projects"
         include "../Projects/TestApplication"
+    group "Modules"
+        include "../Engine/Modules.lua"
     group ""
-
 --CreateProject("TestProject")
 
