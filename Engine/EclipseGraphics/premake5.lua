@@ -1,6 +1,5 @@
 CreateModule(
 	"EclipseGraphics",
-
 	-- Dependencies
 	{
 		"glfw",

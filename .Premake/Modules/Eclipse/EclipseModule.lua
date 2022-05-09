@@ -6,6 +6,8 @@ project(name)
     architecture("x86_64")
     staticruntime("on")
 
+    location("../" .. OutDir .. "Modules/" .. name)
+
     files
     {
         "./**.cpp",
@@ -35,6 +37,6 @@ project(name)
     runtime  "Release"
     optimize "On"
 
-
+    filter ""
 
 end

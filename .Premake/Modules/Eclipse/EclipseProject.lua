@@ -6,6 +6,8 @@ project(name)
     language "C++"
     staticruntime("on")
 
+    location("../" .. OutDir .. "Projects/" .. name)
+
     targetdir("%{BuildLocation}%{prj.name}")
     objdir("%{BuildLocation}Imde/%{prj.name}")
 
@@ -38,5 +40,5 @@ project(name)
     filter "configurations:Release"
        defines { "NDEBUG" }
        optimize "On"
-
+    filter ""
 end

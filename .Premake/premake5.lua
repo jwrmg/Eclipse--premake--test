@@ -60,10 +60,11 @@ workspace "Eclipse"
     include "vendors.lua"
     IncludeDir["EclipseEngine"] = "%{wks.location}/../Engine/"
 
+    -- Projects File (This will load all projects defined.)
     group "Projects"
         include "../Projects/Projects.lua"
+    -- Modules File (This will load all modules defined.)
     group "Modules"
         include "../Engine/Modules.lua"
     group ""
---CreateProject("TestProject")
 
