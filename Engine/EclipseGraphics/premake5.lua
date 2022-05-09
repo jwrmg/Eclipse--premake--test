@@ -1,6 +1,11 @@
-CreateModule("EclipseGraphics")
-files
-{
-    "./include/*",
-    "./src/*"    
-}
+CreateModule(
+	"EclipseGraphics",
+
+	-- Dependencies
+	{
+		"glfw",
+		"assimp",
+		"glad",
+		"imgui"
+	}
+)

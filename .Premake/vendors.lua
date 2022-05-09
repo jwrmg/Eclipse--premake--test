@@ -3,6 +3,7 @@ VendorDir = "%{wks.location}/../Vendors/"
 -- solution_root/Engine/Vendors
 
 IncludeDir = {}
+
 -- IncludeDir[include name] = "%{VendorDir}folder name"
 IncludeDir["GLM"] = VendorDir .. "glm"
 IncludeDir["STB"] = VendorDir .. "stb"
@@ -11,7 +12,7 @@ IncludeDir["GLAD"] = VendorDir .. "glad/include"
 IncludeDir["GLFW"] = VendorDir .. "glfw/include"
 IncludeDir["Assimp"] = VendorDir .. "assimp/include"
 IncludeDir["termcolor"] = VendorDir .. "termcolor/include"
-IncludeDir["RakNet"] = VendorDir .. "raknet"
+IncludeDir["RakNet"] = VendorDir .. "raknet/Source"
 
 group("Vendors")
         include("../Vendors/glm.lua")

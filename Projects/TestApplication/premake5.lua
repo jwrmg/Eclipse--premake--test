@@ -1,1 +1,1 @@
-CreateProject("TestProject")
+CreateProject("Test Application")

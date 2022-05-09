@@ -52,15 +52,16 @@ workspace "Eclipse"
     flags {"MultiProcessorCompile"}
 
     BuildLocation = "%{wks.location}/%{cfg.buildcfg}/"
-
+    
     filter "configurations:Release"
         defines {"NDEBUG"}
     filter {}
     
     include "vendors.lua"
+    IncludeDir["EclipseEngine"] = "%{wks.location}/../Engine/"
 
     group "Projects"
-        include "../Projects/TestApplication"
+        include "../Projects/Projects.lua"
     group "Modules"
         include "../Engine/Modules.lua"
     group ""

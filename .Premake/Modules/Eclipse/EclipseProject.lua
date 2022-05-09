@@ -1,31 +1,42 @@
-function CreateProject(name)
--- BuildLocation = ../Build
-ProjectLocation = string.format("../%s/Projects/%s", BuildLocation, name)
-
-os.mkdir(string.format("%s/data",ProjectLocation))
-os.mkdir(string.format("%s/docs",ProjectLocation))
-os.mkdir(string.format("%s/imde",ProjectLocation))
-os.mkdir(string.format("%s/include",ProjectLocation))
-os.mkdir(string.format("%s/libs",ProjectLocation))
-os.mkdir(string.format("%s/src",ProjectLocation))
-os.mkdir(string.format("%s/tests",ProjectLocation))
+function CreateProject(name, dependencies, workingDir)
 
 project(name)
 
-   kind "ConsoleApp"
-   language "C++"
+    kind "ConsoleApp"
+    language "C++"
+    staticruntime("on")
 
-   targetdir("%{BuildLocation}%{prj.name}")
-   objdir("%{BuildLocation}Imde/%{prj.name}")
+    targetdir("%{BuildLocation}%{prj.name}")
+    objdir("%{BuildLocation}Imde/%{prj.name}")
 
-   files { "**.h", "**.cpp", "**.hpp" }
+    if workingDir == nil then
+        workingDir = "%{BuildLocation}%{prj.name}"
+    end
 
-   filter "configurations:Debug"
-      defines { "DEBUG" }
-      symbols "On"
+    print("Working Dir: " .. workingDir)
+    debugdir(workingDir)
 
-   filter "configurations:Release"
-      defines { "NDEBUG" }
-      optimize "On"
+    files
+    {
+        "./**.cpp",
+        "./**.h",
+        "./**.hpp"
+    }
+    
+    includedirs {
+        "%{wks.location}",
+        IncludeDir, -- Array of include directories
+        "./include"
+    }
+
+    links { dependencies } -- Library dependencies
+
+    filter "configurations:Debug"
+       defines { "DEBUG" }
+       symbols "On"
+
+    filter "configurations:Release"
+       defines { "NDEBUG" }
+       optimize "On"
 
 end
