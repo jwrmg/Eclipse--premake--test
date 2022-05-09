@@ -12,15 +12,27 @@ project ("glfw")
 
 	files
 	{
---		"%{DependencyDir}glfw/include/GLFW/glfw3.h",
---		"%{DependencyDir}glfw/include/GLFW/glfw3native.h",
-		"%{DependencyDir}glfw/src/glfw_config.h",
-		"%{DependencyDir}glfw/src/context.c",
-		"%{DependencyDir}glfw/src/init.c",
-		"%{DependencyDir}glfw/src/input.c",
-		"%{DependencyDir}glfw/src/monitor.c",
-		"%{DependencyDir}glfw/src/vulkan.c",
-		"%{DependencyDir}glfw/src/window.c"
+		"%{DepdendencyDir}glfw/include/GLFW/glfw3.h",
+		"%{DepdendencyDir}glfw/include/GLFW/glfw3native.h",
+		"%{DepdendencyDir}glfw/src/internal.h",
+		"%{DepdendencyDir}glfw/src/platform.h",
+		"%{DepdendencyDir}glfw/src/mappings.h",
+		"%{DepdendencyDir}glfw/src/context.c",
+		"%{DepdendencyDir}glfw/src/init.c",
+		"%{DepdendencyDir}glfw/src/input.c",
+		"%{DepdendencyDir}glfw/src/monitor.c",
+		"%{DepdendencyDir}glfw/src/platform.c",
+		"%{DepdendencyDir}glfw/src/vulkan.c",
+		"%{DepdendencyDir}glfw/src/window.c",
+		"%{DepdendencyDir}glfw/src/egl_context.c",
+		"%{DepdendencyDir}glfw/src/osmesa_context.c",
+		"%{DepdendencyDir}glfw/src/null_platform.h",
+		"%{DepdendencyDir}glfw/src/null_joystick.h",
+		"%{DepdendencyDir}glfw/src/null_init.c",
+
+		"%{DepdendencyDir}glfw/src/null_monitor.c",
+		"%{DepdendencyDir}glfw/src/null_window.c",
+		"%{DepdendencyDir}glfw/src/null_joystick.c",
 	}
     
 	filter "system:linux"
@@ -55,9 +67,12 @@ project ("glfw")
 		files
 		{
 			"%{DependencyDir}glfw/src/win32_init.c",
+			"%{DependencyDir}glfw/src/win32_module.c",
 			"%{DependencyDir}glfw/src/win32_joystick.c",
 			"%{DependencyDir}glfw/src/win32_monitor.c",
+			"%{DependencyDir}glfw/src/win32_time.h",
 			"%{DependencyDir}glfw/src/win32_time.c",
+			"%{DependencyDir}glfw/src/win32_thread.h",
 			"%{DependencyDir}glfw/src/win32_thread.c",
 			"%{DependencyDir}glfw/src/win32_window.c",
 			"%{DependencyDir}glfw/src/wgl_context.c",

@@ -1,22 +1,31 @@
-function CreateModule(name)
+function CreateModule(name, dependencies)
 project(name)
 
     kind("StaticLib")
     language("C++")
     architecture("x86_64")
+    staticruntime("on")
+
+    files
+    {
+        "./**.cpp",
+        "./**.h",
+        "./**.hpp"
+    }
     
     includedirs {
-        "%{wks.location}"
+        "%{wks.location}",
+        IncludeDir, -- Array of include directories
+        "./include"
     }
 
-    location("../" .. OutDir .. "Modules/" .. name)
+    links(dependencies) -- Library dependencies
+
+    -- location("../" .. OutDir .. "Modules/" .. name)
 
     targetdir("%{BuildLocation}%{prj.name}")
     objdir("%{BuildLocation}Imde/%{prj.name}")
 
-
-
-    staticruntime("On")
 
     filter "configurations:Debug"
     runtime "Debug"
